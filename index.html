@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="is">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leikhöllin – Community Built Play Hall</title>
-  <meta name="description" content="A community-built indoor play hall for children in Vestmannaeyjar, Iceland." />
+  <title>Leikhöllin – Samfélagsdrifið innanhúss leiksvæði</title>
+  <meta name="description" content="Leikhöllin er samfélagsdrifið innanhúss leiksvæði fyrir börn og fjölskyldur í Vestmannaeyjum." />
 
   <!-- Icons (Facebook/Instagram/Mail) -->
   <link rel="stylesheet"
@@ -29,7 +29,7 @@
 
     h1 {
       font-size: 2.6em;
-      margin-bottom: 0.3em;
+      margin: 0 0 0.3em 0;
     }
 
     h2 {
@@ -39,6 +39,7 @@
 
     p {
       font-size: 1.05em;
+      margin: 0.8em 0;
     }
 
     .hero {
@@ -52,12 +53,42 @@
       font-weight: bold;
     }
 
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .lang-switch button {
+      background: #f1f3f5;
+      border: 1px solid #e5e7eb;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.95em;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .lang-switch button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+    }
+
+    .lang-switch button.active {
+      background: #111827;
+      color: #fff;
+      border-color: #111827;
+    }
+
     .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
       justify-content: center;
-      margin-top: 22px;
+      margin-top: 18px;
     }
 
     .btn {
@@ -85,15 +116,16 @@
 
     /* HERO BANNER (full-width inside the card) */
     .banner {
-      margin: 26px -24px 10px;   /* stretch out past container padding */
+      margin: 26px -24px 10px;
       overflow: hidden;
       position: relative;
+      border-radius: 14px;
     }
 
     .banner img {
       width: 100%;
-      height: 240px;             /* banner height on mobile */
-      object-fit: cover;          /* crop like a hero banner */
+      height: 240px;
+      object-fit: cover;
       display: block;
       filter: saturate(1.05) contrast(1.02);
     }
@@ -121,7 +153,7 @@
 
     ul {
       padding-left: 20px;
-      margin: 0;
+      margin: 0.6em 0 0 0;
     }
 
     .footer {
@@ -140,38 +172,52 @@
 
     <!-- HERO -->
     <section class="hero">
-      <h1>Leikhöllin</h1>
-      <p>
-        <strong>A <span>community-built</span> indoor play hall for children<br>
-        in Vestmannaeyjar, Iceland</strong>
+
+      <!-- Language toggle -->
+      <div class="lang-switch">
+        <button id="btn-is" type="button" onclick="setLang('is')">🇮🇸 Íslenska</button>
+        <button id="btn-en" type="button" onclick="setLang('en')">🇬🇧 English</button>
+      </div>
+
+      <h1 data-is="Leikhöllin" data-en="Leikhöllin">Leikhöllin</h1>
+
+      <p data-is="Samfélagsdrifið innanhúss leiksvæði fyrir börn og fjölskyldur í Vestmannaeyjum."
+         data-en="A community-built indoor play hall for children and families in Vestmannaeyjar, Iceland.">
+        Samfélagsdrifið innanhúss leiksvæði fyrir börn og fjölskyldur í Vestmannaeyjum.
+      </p>
+
+      <p data-is="Við erum að skapa varanlegt og öruggt rými þar sem börn geta leikið sér allt árið — líka á dimmum og stormasömum dögum."
+         data-en="We are creating a permanent, safe place where children can play year-round — even through long, dark, stormy seasons.">
+        Við erum að skapa varanlegt og öruggt rými þar sem börn geta leikið sér allt árið — líka á dimmum og stormasömum dögum.
       </p>
 
       <div class="buttons">
         <a class="btn btn-support"
            href="https://www.karolinafund.com/project/view/6654"
-           target="_blank" rel="noopener">
+           target="_blank" rel="noopener"
+           data-is="Styrkja verkefnið" data-en="Support the project">
           <i class="fa-solid fa-heart"></i>
-          Support the project
+          <span data-is="Styrkja verkefnið" data-en="Support the project">Styrkja verkefnið</span>
         </a>
 
         <a class="btn btn-mail"
            href="mailto:leikhollin@gmail.com">
           <i class="fa-solid fa-envelope"></i>
-          Email
+          <span data-is="Tölvupóstur" data-en="Email">Tölvupóstur</span>
         </a>
 
         <a class="btn btn-facebook"
            href="https://facebook.com/LEIKHOLLIN"
            target="_blank" rel="noopener">
           <i class="fa-brands fa-facebook-f"></i>
-          Facebook
+          <span data-is="Facebook" data-en="Facebook">Facebook</span>
         </a>
 
         <a class="btn btn-instagram"
            href="https://instagram.com/LEIKHOLLIN"
            target="_blank" rel="noopener">
           <i class="fa-brands fa-instagram"></i>
-          Instagram
+          <span data-is="Instagram" data-en="Instagram">Instagram</span>
         </a>
       </div>
     </section>
@@ -183,40 +229,74 @@
 
     <!-- WHY -->
     <section class="card">
-      <h2>Why it matters</h2>
-      <p>
-        Vestmannaeyjar is a small island community with long winters and limited
-        indoor spaces for children. An indoor play hall is not a luxury here —
-        it is essential infrastructure for wellbeing, play, and social connection.
+      <h2 data-is="Af hverju þetta skiptir máli" data-en="Why it matters">Af hverju þetta skiptir máli</h2>
+      <p data-is="Vestmannaeyjar eru einstakt samfélag — en veturinn er langur og innanhúss aðstaða fyrir börn er takmörkuð. Leikhöllin er ekki „lúxus“; hún er raunveruleg grunnþjónusta fyrir leik, líðan og félagsleg tengsl."
+         data-en="Vestmannaeyjar is a small island community with long winters and limited indoor spaces for children. An indoor play hall is not a luxury here — it is essential infrastructure for wellbeing, play, and social connection.">
+        Vestmannaeyjar eru einstakt samfélag — en veturinn er langur og innanhúss aðstaða fyrir börn er takmörkuð. Leikhöllin er ekki „lúxus“; hún er raunveruleg grunnþjónusta fyrir leik, líðan og félagsleg tengsl.
       </p>
     </section>
 
     <!-- STATUS -->
     <section class="card">
-      <h2>What already exists</h2>
+      <h2 data-is="Hvað er nú þegar til staðar" data-en="What already exists">Hvað er nú þegar til staðar</h2>
       <ul>
-        <li>Core indoor play equipment secured</li>
-        <li>Strong community involvement</li>
-        <li>Active local fundraising</li>
+        <li data-is="Kjarnabúnaður (leikgrind) er tryggður" data-en="Core indoor play equipment secured">
+          Kjarnabúnaður (leikgrind) er tryggður
+        </li>
+        <li data-is="Sterk þátttaka og stuðningur úr samfélaginu" data-en="Strong community involvement">
+          Sterk þátttaka og stuðningur úr samfélaginu
+        </li>
+        <li data-is="Söfnun og uppbygging í fullum gangi" data-en="Active local fundraising">
+          Söfnun og uppbygging í fullum gangi
+        </li>
       </ul>
     </section>
 
     <!-- GET INVOLVED -->
     <section class="card">
-      <h2>Get involved</h2>
+      <h2 data-is="Taktu þátt" data-en="Get involved">Taktu þátt</h2>
+      <p data-is="Viltu styrkja, styðja, vera samstarfsaðili eða hjálpa með efni/þjónustu? Sendu okkur línu:"
+         data-en="Want to support, sponsor, partner, or donate materials/services? Send us a message:">
+        Viltu styrkja, styðja, vera samstarfsaðili eða hjálpa með efni/þjónustu? Sendu okkur línu:
+      </p>
       <p>
-        If you want to support, sponsor, or partner with Leikhöllin, reach out:
         <a href="mailto:leikhollin@gmail.com"><strong>leikhollin@gmail.com</strong></a>
       </p>
     </section>
 
     <!-- FOOTER -->
-    <div class="footer">
-      Built by the community of Vestmannaeyjar, Iceland.<br>
-      © Leikhöllin
+    <div class="footer"
+         data-is="Byggt af samfélaginu í Vestmannaeyjum. © Leikhöllin"
+         data-en="Built by the community of Vestmannaeyjar, Iceland. © Leikhöllin">
+      Byggt af samfélaginu í Vestmannaeyjum. © Leikhöllin
     </div>
 
   </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-is]').forEach(el => {
+        el.textContent = el.dataset[lang];
+      });
+
+      // Toggle button styles
+      const btnIs = document.getElementById('btn-is');
+      const btnEn = document.getElementById('btn-en');
+      if (btnIs && btnEn) {
+        btnIs.classList.toggle('active', lang === 'is');
+        btnEn.classList.toggle('active', lang === 'en');
+      }
+
+      // Update page language
+      document.documentElement.lang = lang;
+
+      // Save preference
+      localStorage.setItem('lang', lang);
+    }
+
+    const savedLang = localStorage.getItem('lang') || 'is';
+    setLang(savedLang);
+  </script>
 
 </body>
 </html>
