@@ -114,7 +114,6 @@
     .btn-facebook { background: #1877f2; }
     .btn-instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af); }
 
-    /* HERO BANNER (full-width inside the card) */
     .banner {
       margin: 26px -24px 10px;
       overflow: hidden;
@@ -156,8 +155,46 @@
       margin: 0.6em 0 0 0;
     }
 
-    /* WHY grid (correct placement: NOT inside .footer) */
+    /* WHY grid */
     .why-grid{
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .why-box{
+      background: #ffffff;
+      border: 1px solid #eef2f7;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.04); /* ← nýja faglega shadowið */
+    }
+
+    .why-box h3{
+      margin: 0 0 10px 0;
+      font-size: 1.1em;
+    }
+
+    .why-box ul{
+      margin: 0;
+    }
+
+    @media (max-width: 720px){
+      .why-grid{ grid-template-columns: 1fr; }
+    }
+
+    .footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- rest of your HTML stays unchanged -->
+</body>
+</html>
