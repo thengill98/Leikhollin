@@ -114,6 +114,7 @@
     .btn-facebook { background: #1877f2; }
     .btn-instagram { background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af); }
 
+    /* HERO BANNER (full-width inside the card) */
     .banner {
       margin: 26px -24px 10px;
       overflow: hidden;
@@ -155,14 +156,13 @@
       margin: 0.6em 0 0 0;
     }
 
-    /* WHY grid */
+    /* WHY grid (added) */
     .why-grid{
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
       margin-top: 14px;
     }
-
     .why-box{
       background: #ffffff;
       border: 1px solid #eef2f7;
@@ -170,16 +170,13 @@
       padding: 16px;
       box-shadow: 0 8px 18px rgba(0,0,0,0.04);
     }
-
     .why-box h3{
       margin: 0 0 10px 0;
       font-size: 1.1em;
     }
-
     .why-box ul{
       margin: 0;
     }
-
     @media (max-width: 720px){
       .why-grid{ grid-template-columns: 1fr; }
     }
@@ -195,53 +192,187 @@
   </style>
 </head>
 <body>
+
   <div class="container">
-    <div class="hero">
-      <h1>Leikhöllin</h1>
-      <p>Samfélagsdrifið innanhúss leiksvæði fyrir börn og fjölskyldur í Vestmannaeyjum</p>
-    </div>
 
-    <div class="lang-switch">
-      <button class="active">Íslenska</button>
-      <button>English</button>
-    </div>
+    <!-- HERO -->
+    <section class="hero">
 
+      <!-- Language toggle -->
+      <div class="lang-switch">
+        <button id="btn-is" type="button" onclick="setLang('is')">🇮🇸 Íslenska</button>
+        <button id="btn-en" type="button" onclick="setLang('en')">🇬🇧 English</button>
+      </div>
+
+      <h1 data-is="Leikhöllin" data-en="Leikhöllin">Leikhöllin</h1>
+
+      <p data-is="Samfélagsdrifið innanhúss leiksvæði fyrir börn og fjölskyldur í Vestmannaeyjum."
+         data-en="A community-built indoor play hall for children and families in Vestmannaeyjar, Iceland.">
+        Samfélagsdrifið innanhúss leiksvæði fyrir börn og fjölskyldur í Vestmannaeyjum.
+      </p>
+
+      <p data-is="Við erum að skapa varanlegt og öruggt rými þar sem börn geta leikið sér allt árið — líka á dimmum og stormasömum dögum."
+         data-en="We are creating a permanent, safe place where children can play year-round — even through long, dark, stormy seasons.">
+        Við erum að skapa varanlegt og öruggt rými þar sem börn geta leikið sér allt árið — líka á dimmum og stormasömum dögum.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-support"
+           href="https://www.karolinafund.com/project/view/6654"
+           target="_blank" rel="noopener"
+           data-is="Styrkja verkefnið" data-en="Support the project">
+          <i class="fa-solid fa-heart"></i>
+          <span data-is="Styrkja verkefnið" data-en="Support the project">Styrkja verkefnið</span>
+        </a>
+
+        <a class="btn btn-mail"
+           href="mailto:leikhollin@leikhollin.is">
+          <i class="fa-solid fa-envelope"></i>
+          <span data-is="Tölvupóstur" data-en="Email">Tölvupóstur</span>
+        </a>
+
+        <a class="btn btn-facebook"
+           href="https://facebook.com/LEIKHOLLIN"
+           target="_blank" rel="noopener">
+          <i class="fa-brands fa-facebook-f"></i>
+          <span data-is="Facebook" data-en="Facebook">Facebook</span>
+        </a>
+
+        <a class="btn btn-instagram"
+           href="https://instagram.com/LEIKHOLLIN"
+           target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram"></i>
+          <span data-is="Instagram" data-en="Instagram">Instagram</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- BANNER (full width) -->
     <div class="banner">
-      <img src="softplay-banner.png" alt="Leikhöllin banner" />
+      <img src="softplay-banner.png" alt="Leikhöllin soft play">
     </div>
 
-    <div class="buttons">
-      <a href="#support" class="btn btn-support">
-        <i class="fas fa-hand-holding-heart"></i> Styrktu okkur
-      </a>
-      <a href="mailto:leikhollin@leikhollin.is" class="btn btn-mail">
-        <i class="fas fa-envelope"></i> Sendu okkur email
-      </a>
-      <a href="https://www.facebook.com/leikhollin" class="btn btn-facebook">
-        <i class="fab fa-facebook"></i> Facebook
-      </a>
-      <a href="https://www.instagram.com/leikhollin" class="btn btn-instagram">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-    </div>
+    <!-- WHY (updated text + grid, no dramatics) -->
+    <section class="card" id="af-hverju">
+      <h2 data-is="Af hverju þetta skiptir máli" data-en="Why it matters">Af hverju þetta skiptir máli</h2>
 
-    <h2>Um Leikhöllina</h2>
-    <p>Leikhöllin er samfélagsdrifið innanhúss leiksvæði sem var stofnað til að veita börnum og fjölskyldum gæðaendurkreppan og skemmtilegan stað til að leika sér.</p>
+      <p data-is="Vestmannaeyjar eru eyjasamfélag með langan vetur og takmarkaða innanhúss afþreyingu fyrir börn. Leikhöllin bætir við öruggu heilsárs rými þar sem börn geta leikið og hreyft sig óháð veðri."
+         data-en="Vestmannaeyjar is an island community with long winters and limited indoor options for children. Leikhöllin adds a safe year-round space where children can play and be active regardless of weather.">
+        Vestmannaeyjar eru eyjasamfélag með langan vetur og takmarkaða innanhúss afþreyingu fyrir börn. Leikhöllin bætir við öruggu heilsárs rými þar sem börn geta leikið og hreyft sig óháð veðri.
+      </p>
 
-    <div class="why-grid">
-      <div class="why-box">
-        <h3>📍 Staðsetning</h3>
-        <p>Staðsett í hjarta Vestmannaeyja, auðvelt aðgengi fyrir allt.</p>
+      <div class="why-grid">
+        <div class="why-box">
+          <h3 data-is="Hreyfing og þroski" data-en="Movement and development">Hreyfing og þroski</h3>
+          <ul>
+            <li data-is="Regluleg hreyfing óháð veðri" data-en="Regular activity regardless of weather">
+              Regluleg hreyfing óháð veðri
+            </li>
+            <li data-is="Leikur styður líkamlegan og félagslegan þroska" data-en="Play supports physical and social development">
+              Leikur styður líkamlegan og félagslegan þroska
+            </li>
+          </ul>
+        </div>
+
+        <div class="why-box">
+          <h3 data-is="Félagsleg tengsl" data-en="Social connection">Félagsleg tengsl</h3>
+          <ul>
+            <li data-is="Börn æfa samskipti og samvinnu" data-en="Children practice communication and cooperation">
+              Börn æfa samskipti og samvinnu
+            </li>
+            <li data-is="Fjölskyldur fá sameiginlegan stað til að hittast" data-en="Families get a shared place to meet">
+              Fjölskyldur fá sameiginlegan stað til að hittast
+            </li>
+          </ul>
+        </div>
+
+        <div class="why-box">
+          <h3 data-is="Aðgengi" data-en="Access">Aðgengi</h3>
+          <ul>
+            <li data-is="Heilsárs valkostur fyrir fjölskyldur" data-en="A year-round option for families">
+              Heilsárs valkostur fyrir fjölskyldur
+            </li>
+            <li data-is="Minni þörf á að sækja afþreyingu utan eyjar" data-en="Less need to travel off-island for activities">
+              Minni þörf á að sækja afþreyingu utan eyjar
+            </li>
+          </ul>
+        </div>
+
+        <div class="why-box">
+          <h3 data-is="Samfélagsleg áhrif" data-en="Community impact">Samfélagsleg áhrif</h3>
+          <ul>
+            <li data-is="Skapar störf og þjónustu innan bæjarins" data-en="Creates local jobs and services">
+              Skapar störf og þjónustu innan bæjarins
+            </li>
+            <li data-is="Heldur meiri virkni í bænum yfir veturinn" data-en="Helps keep the community active through winter">
+              Heldur meiri virkni í bænum yfir veturinn
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="why-box">
-        <h3>👨‍👩‍👧‍👦 Fyrir Fjölskyldur</h3>
-        <p>Snyrtilegt og öruggt umhverfi fyrir börn og foreldra.</p>
-      </div>
+    </section>
+
+    <!-- STATUS -->
+    <section class="card">
+      <h2 data-is="Hvað er nú þegar til staðar" data-en="What already exists">Hvað er nú þegar til staðar</h2>
+      <ul>
+        <li data-is="Kjarnabúnaður (leikgrind) er tryggður" data-en="Core indoor play equipment secured">
+          Kjarnabúnaður (leikgrind) er tryggður
+        </li>
+        <li data-is="Sterk þátttaka og stuðningur úr samfélaginu" data-en="Strong community involvement">
+          Sterk þátttaka og stuðningur úr samfélaginu
+        </li>
+        <li data-is="Söfnun og uppbygging í fullum gangi" data-en="Active local fundraising">
+          Söfnun og uppbygging í fullum gangi
+        </li>
+      </ul>
+    </section>
+
+    <!-- GET INVOLVED -->
+    <section class="card">
+      <h2 data-is="Taktu þátt" data-en="Get involved">Taktu þátt</h2>
+      <p data-is="Viltu styrkja, styðja, vera samstarfsaðili eða hjálpa með efni/þjónustu? Sendu okkur línu:"
+         data-en="Want to support, sponsor, partner, or donate materials/services? Send us a message:">
+        Viltu styrkja, styðja, vera samstarfsaðili eða hjálpa með efni/þjónustu? Sendu okkur línu:
+      </p>
+      <p>
+        <a href="mailto:leikhollin@leikhollin.is"><strong>leikhollin@leikhollin.is</strong></a>
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer"
+         data-is="© Leikhöllin"
+         data-en="© Leikhöllin">
+  © Leikhöllin
     </div>
 
-    <div class="footer">
-      <p>&copy; 2025 Leikhöllin. Allir réttur áskildir.</p>
-    </div>
   </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-is]').forEach(el => {
+        el.textContent = el.dataset[lang];
+      });
+
+      // Toggle button styles
+      const btnIs = document.getElementById('btn-is');
+      const btnEn = document.getElementById('btn-en');
+      if (btnIs && btnEn) {
+        btnIs.classList.toggle('active', lang === 'is');
+        btnEn.classList.toggle('active', lang === 'en');
+      }
+
+      // Update page language
+      document.documentElement.lang = lang;
+
+      // Save preference
+      localStorage.setItem('lang', lang);
+    }
+
+    const savedLang = localStorage.getItem('lang') || 'is';
+    setLang(savedLang);
+  </script>
+
 </body>
 </html>
